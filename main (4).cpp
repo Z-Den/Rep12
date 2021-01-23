@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+string f(string s, int i){
+    string s1(1,s[i]);
+    if (i==s.size()-1){
+        return s1;
+    }
+    string k=")";
+    string n="(";
+    if (s.size()%2==0){
+        if ((i==(s.size()-1)/2) || (i==(s.size()-1)/2-1)){
+            return s1+f(s,i+1); 
+        }
+    }
+    if (s.size()%2!=0){
+        if(i==(s.size()-1)/2){
+            return s1+f(s,i+1);
+        }
+    }
+    if(i<(s.size()-1)/2-1){
+        return s1+n+f(s,i+1);
+    }
+    if (i>(s.size()-1)/2+1){
+        return k+s1+f(s,i+1);
+    }
+}
+
+int main()
+{
+    string s;
+    int i=0;
+    cin>>s;
+    cout<<f(s,i);
+
+    return 0;
+}
