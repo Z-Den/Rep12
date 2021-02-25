@@ -1,21 +1,28 @@
 #include <iostream>
 
 using namespace std;
-string f(string s, int i){
-    string s1(1,s[i]);
-    if (i==s.size()-1){
-        return s1;
-    }
-    string n="*";
-    return s1+n+f(s,i+1);
-}
 
 int main()
 {
     string s;
-    int i=0;
-    cin>>s;
-    cout<<f(s,i);
+    string s1="B",s2="A",s3="BA";
+    for(int i=0;i<=51;i++){
+        s+="AB";
+    }
 
+    while (s.find("AA")!=string::npos || s.find("BB")!=string::npos || s.find("AB")!=string::npos){
+        if (s.find("AA")!=string::npos){
+            s.replace(s.find("AA"),2,s1);
+        }
+        if (s.find("BB")!=string::npos){
+            s.replace(s.find("BB"),2,s2);
+        }
+        if (s.find("AB")!=string::npos){
+            s.replace(s.find("AB"),2,s3);
+        }
+    }
+    
+    cout<<s;
+    
     return 0;
 }
